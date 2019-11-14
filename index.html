@@ -8,15 +8,30 @@
   <body style="background-color: aquamarine">
     <h1>我叫<span id="myname"></h1>
     <p>我的学号是<span id="mynumber"></span>
+      <br>
       <img src="matrix.png">
       <img src="frog.jpg" id="aa">
     </p>
     <script>
       $(function(){
-        $.get("./data.json",function(result){
-          $("#myname").text(result.myname);
-          $("#mynumber").text(result.number);
-        });
+        // $.get("http://10.30.201.55:8585/data.json",function(result){
+        // $.post("http://10.30.201.54:8585/data.json",function(result){
+        //   $("#myname").text(result.myname);
+        //   $("#mynumber").text(result.mynumber);
+        // });
+
+        // $.post("http://10.30.201.54:8585/data.json",{myname:"csj",mynumber:"123"}
+        // );
+        $.ajax({
+          type:"POST",
+          url:"http://10.30.201.54:8585/data.json",
+          contentType:"application.json",
+          data:{"myname":"csj","mynumber":"123"},
+          success:function(result){
+            $("#myname").text(result.myname);
+            $("#mynumber").text(result.mynumber);
+          },
+        })
       })
     </script>
   </body>
