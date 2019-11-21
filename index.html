@@ -6,6 +6,7 @@
     }
   </style>
   <body style="background-color: aquamarine">
+    <a href="login.html">去登陆</a>
     <h1>我叫<span id="myname"></h1>
     <p>我的学号是<span id="mynumber"></span>
       <br>
@@ -24,6 +25,9 @@
         // );
         $.ajax({
           type:"POST",
+          xhrFields:{
+            withCredentials:true
+          },
           url:"http://10.30.201.54:8585/data.json",
           contentType:"application.json",
           data:{"myname":"csj","mynumber":"123"},

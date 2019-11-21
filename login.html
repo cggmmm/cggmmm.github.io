@@ -24,6 +24,9 @@
 
                 $.ajax({
                     type:"POST",
+                    xhrFields:{
+                        withCredentials:true
+                    },
                     url:"http://10.30.201.54:8585/login",
                     contentType:"application/json",
                     data:JSON.stringify(data)
